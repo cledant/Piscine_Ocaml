@@ -7,4 +7,8 @@ let ft_sum f min max =
 
 let () =
 	print_float (ft_sum (fun i -> float_of_int (i * i)) 1 10);
-	print_float (ft_sum (fun i -> float_of_int (i * i)) 1 10)
+    print_endline "";
+    print_float (ft_sum (fun i -> float_of_int (i * i)) 10 10);
+    print_endline "";
+    print_float (ft_sum (fun i -> float_of_int (i * i)) 10 (-10));
+    print_endline ""
