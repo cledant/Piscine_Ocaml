@@ -30,6 +30,6 @@ let print_int_endl x =
     print_char '\n'
 
 let () =
-    List.iter print_int_endl (crossover [1;10;15;30;10] [10;65;87;30;78;15;10]);
+    List.iter print_int_endl (crossover [1;10;15;30] [10;65;87;30;78;15;10]);
     print_endline "";
     List.iter print_endline (crossover ["titi";"caca";"roro";"toto";"nya"] ["bbb";"ccc";"toto";"ddd";"eee";"nya";"aaa"]);
