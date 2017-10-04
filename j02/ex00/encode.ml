@@ -1,16 +1,18 @@
-let incr x = match x with (n, m) -> (n + 1, m)
-
-let get_first_elmt = function
-    | x::_      -> x
-    | []        -> failwith "Empty list"
-
 let encode lst =
-    if lst = [] then []
-    else
-    let rec loop lst tuple lst_tuple = match lst with
-    | [] -> lst_tuple
-    | hd :: tl -> if ((get_first_elmt hd) <> (get_first_elmt tl))
-                                then (loop tl (incr tuple) lst_tuple)
-                                else (loop tl (0, (get_first_elmt tl)) (lst_tuple @ [tuple]))
+    let rec loop lst it lst_tuple = match lst with
+    | [] 				-> lst_tuple
+    | hd :: elmt :: tl	-> if (hd = elmt)	then (loop (elmt :: tl) (it + 1) lst_tuple)
+											else loop (elmt :: tl) 0 (lst_tuple @ [((it + 1), hd)])
+	| hd :: []			-> loop [] 0 (lst_tuple @ [((it + 1), hd)])
+ 
     in
-    loop lst (0, (get_first_elmt lst)) []
+    loop lst 0 []
+
+let display_str (n, m) =
+		print_int n;
+		print_char ' ';
+		print_string m;
+		print_char ','
+
+let () =
+	List.iter display_str (encode ["a"; "a"; "a"; "b"; "b"; "b"])
