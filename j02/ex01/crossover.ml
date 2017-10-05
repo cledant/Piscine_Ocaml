@@ -21,7 +21,7 @@ let crossover list1 list2 =
         let rec loop list1 list2 ret_list =
             if is_null list1 then ret_list
             else
-                if is_in_list (get_first_elmt list1) list2 then loop (next_elmt list1) list2 (ret_list @[get_first_elmt list1])
+                if ((is_in_list (get_first_elmt list1) list2) = true && ((is_in_list (get_first_elmt list1) ret_list) = false)) then loop (next_elmt list1) list2 (ret_list @[get_first_elmt list1])
                 else loop (next_elmt list1) list2 ret_list
         in loop list1 list2 []
 
@@ -30,6 +30,6 @@ let print_int_endl x =
     print_char '\n'
 
 let () =
-    List.iter print_int_endl (crossover [1;10;15;30] [10;65;87;30;78;15;10]);
+    List.iter print_int_endl (crossover [1;10;30;15;30;10] [10;65;87;30;78;15;10]);
     print_endline "";
     List.iter print_endline (crossover ["titi";"caca";"roro";"toto";"nya"] ["bbb";"ccc";"toto";"ddd";"eee";"nya";"aaa"]);
