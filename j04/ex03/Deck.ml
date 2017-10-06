@@ -177,3 +177,35 @@ let isClub card =
     isOf card Color.Club
 
 end
+
+type t = Card.t list
+
+let remove_nth_element index lst max_index = 
+	let rec loop new_list lst cur_index max_index banned =
+		if (cur_index >= max_index) then new_list
+		else if (cur_index = banned) then loop new_list lst (cur_index + 1) max_index banned
+		else loop (new_list @ [List.nth lst cur_index]) lst (cur_index + 1) max_index banned
+	in
+	loop [] lst 0 max_index index
+
+let newDeck =
+	Random.self_init ();
+	let rec loop newdeck pile cur_in_pile =
+		if (cur_in_pile = 0) then newdeck
+		else
+			begin
+				let ran = (Random.int cur_in_pile) in
+				loop (newdeck @ [List.nth pile ran]) (remove_nth_element ran pile cur_in_pile) (cur_in_pile - 1)
+			end	
+	in
+	loop [] Card.all 52
+
+let toStringList deck =
+	List.map Card.toString deck
+
+let toStringListVerbose deck =
+	List.map Card.toStringVerbose deck
+
+let drawCard deck = match deck with
+	| []		-> failwith "Deck is Empty"
+	| _			-> (List.hd deck, List.tl deck)
