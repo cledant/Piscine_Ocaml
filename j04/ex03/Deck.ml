@@ -188,7 +188,7 @@ let remove_nth_element index lst max_index =
 	in
 	loop [] lst 0 max_index index
 
-let newDeck =
+let newDeck () =
 	Random.self_init ();
 	let rec loop newdeck pile cur_in_pile =
 		if (cur_in_pile = 0) then newdeck
