@@ -26,18 +26,21 @@ let () =
     let str_nb_jokes = try input_line fs with
             | _     -> begin
                             print_endline "Read number of jokes failed";
+    						close_in fs;
                             exit 0
                        end
     in
     let int_nb_jokes = try int_of_string str_nb_jokes with
             | _     -> begin
                             print_endline "Not a number";
+    						close_in fs;
                             exit 0
                        end
     in
     if (int_nb_jokes <= 0 || int_nb_jokes > 20) then
         begin
             print_endline "Invalid number of jokes";
+    		close_in fs;
             exit 0
         end
     else
