@@ -1,5 +1,6 @@
 let () =
-    let totor = new Doctor.doctor "DR Totor" "Toto" 50 in
+	let toto = new People.people "Toto" in
+    let totor = new Doctor.doctor "DR Totor" toto 50 in
     print_endline (totor#to_string);
     totor#talk;
     totor#use_sonic_screwdriver;
