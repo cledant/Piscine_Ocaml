@@ -25,7 +25,7 @@ class dalek =
             display (Random.int 4)
          method exterminate (ppl : People.people) =
              begin
-                 ppl#set_hp (-9999);
+                 ppl#die;
                  if _shield = true then _shield <- false
                  else _shield <- true
              end
