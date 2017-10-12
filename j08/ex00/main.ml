@@ -12,7 +12,7 @@ let () =
     print_endline (n1#to_string);
     print_endline (cl1#to_string);
     print_endline (b1#to_string);
-    print_endline (string_of_bool (h1#equal (h2 :> Atoms.atom)));
-    print_endline (string_of_bool (o1#equal (h2 :> Atoms.atom)));
-    print_endline (string_of_bool (c1#equal (h2 :> Atoms.atom)))
+    print_endline (string_of_bool (h1#equal h2));
+    print_endline (string_of_bool (o1#equal h2));
+    print_endline (string_of_bool (c1#equal h2))
 
