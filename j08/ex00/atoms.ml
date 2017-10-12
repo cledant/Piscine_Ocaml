@@ -1,8 +1,8 @@
-class virtual atom =
+class virtual atom (a_name : string) (a_symbol : string) (a_nb : int) =
     object (self)
-        method virtual name : string
-        method virtual symbol : string
-        method virtual atomic_number : int
+        method name = a_name
+        method symbol = a_symbol
+        method atomic_number = a_nb
 
         method to_string = self#name ^ " => Symbol : " ^ self#symbol ^ " | Atomic number : " ^ (string_of_int self#atomic_number)
         method equal (rhs : atom) =
@@ -12,48 +12,30 @@ class virtual atom =
 
 class hydrogen =
     object
-        inherit atom
-        method name = "Hydrogen"
-        method symbol = "H"
-        method atomic_number = 1
+        inherit atom "Hydrogen" "H" 1
      end
 
 class carbon =
     object
-        inherit atom
-        method name = "Carbon"
-        method symbol = "C"
-        method atomic_number = 6
+        inherit atom "Carbon" "C" 6
      end
 
 class oxygen =
     object
-        inherit atom
-        method name = "Oxygen"
-        method symbol = "O"
-        method atomic_number = 8
+        inherit atom "Oxygen" "O" 8
      end
 
 class nitrogen =
     object
-        inherit atom
-        method name = "Nitrogen"
-        method symbol = "N"
-        method atomic_number = 7
+        inherit atom "Nitrogen" "N" 7
      end
 
 class boron =
     object
-        inherit atom
-        method name = "Boron"
-        method symbol = "B"
-        method atomic_number = 5
+        inherit atom "Boron" "B" 5
      end
 
 class chlorine =
     object
-        inherit atom
-        method name = "Chlorine"
-        method symbol = "Cl"
-        method atomic_number = 17
+        inherit atom "Chlorine" "Cl" 17
      end
