@@ -29,5 +29,5 @@ class dalek =
                  if _shield = true then _shield <- false
                  else _shield <- true
              end
-         method die = print_endline "Emergency Temporal Shift"
+         method die = print_endline "Emergency Temporal Shift!"
      end

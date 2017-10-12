@@ -36,4 +36,5 @@ class doctor name sidekick age =
                        |       |       |        
                        *****************")
             end
+         method reincarnate = self#regenerate
     end
